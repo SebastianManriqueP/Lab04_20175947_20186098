@@ -7,7 +7,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
@@ -16,10 +19,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.lab04_aiot.EmpleadoViewModel;
 import com.example.lab04_aiot.R;
 import com.example.lab04_aiot.databinding.FragmentTrabajadorBinding;
 import com.example.lab04_aiot.model.Employee;
 import com.example.lab04_aiot.repositroy.TrabajadorRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,7 +42,6 @@ public class TrabajadorFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -45,14 +51,16 @@ public class TrabajadorFragment extends Fragment {
 
         NavController navController = NavHostFragment.findNavController(TrabajadorFragment.this);
 
+        /**Cambiar la IP por la ip privada de la maquina donde se ejecuta el web service**/
+        String baseUrl = "http://10.101.7.117:8080";
 
-        /**Cambiar la IP por la ip privada de la maquina donde se corre el web service**/
         TrabajadorRepository greenStoreRepository = new Retrofit.Builder()
-                .baseUrl("http://192.168.18.7:8080")
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(TrabajadorRepository.class);
 
+        /*Al presionar el boto ver info:*/
         binding.bVerInfo.setOnClickListener(view -> {
             String id = binding.editTextNumber.getText().toString();
             if(id.equals("")) {
@@ -67,7 +75,11 @@ public class TrabajadorFragment extends Fragment {
                                 CrearToast("No existe empleado con ese id");
                             }else {
                                 Employee trabajador = response.body();
-                                showTrabajadorNotifications(trabajador.getFirst_name());
+                                if (trabajador.getMeeting() == 1){
+                                    showTrabajadorNotifications("");
+                                }
+                                EmpleadoViewModel empleadoViewModel = new ViewModelProvider(requireActivity()).get(EmpleadoViewModel.class);
+                                empleadoViewModel.getEmpleado().setValue(trabajador);
                                 navController.navigate(R.id.action_trabajadorFragment_to_trabajadorDetalle);
                             }
                         }else{
@@ -82,6 +94,10 @@ public class TrabajadorFragment extends Fragment {
                 });
             }
         });
+
+        /*Al presionar el boto ver Horarios:*/
+
+
 
         return binding.getRoot();
     }

@@ -18,5 +18,6 @@
         android:id="@+id/trabajadorDetalle"
         android:name="com.example.lab04_aiot.fragment.TrabajadorDetalle"
         android:label="fragment_trabajador_detalle"
-        tools:layout="@layout/fragment_trabajador_detalle" />
+        tools:layout="@layout/fragment_trabajador_detalle" >
+    </fragment>
 </navigation>
