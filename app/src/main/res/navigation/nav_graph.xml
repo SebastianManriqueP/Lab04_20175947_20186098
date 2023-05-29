@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/trabajadorFragment">
+
+    <fragment
+        android:id="@+id/trabajadorFragment"
+        android:name="com.example.lab04_aiot.fragment.TrabajadorFragment"
+        android:label="fragment_trabajador"
+        tools:layout="@layout/fragment_trabajador" >
+        <action
+            android:id="@+id/action_trabajadorFragment_to_trabajadorDetalle"
+            app:destination="@id/trabajadorDetalle" />
+    </fragment>
+    <fragment
+        android:id="@+id/trabajadorDetalle"
+        android:name="com.example.lab04_aiot.fragment.TrabajadorDetalle"
+        android:label="fragment_trabajador_detalle"
+        tools:layout="@layout/fragment_trabajador_detalle" />
+</navigation>

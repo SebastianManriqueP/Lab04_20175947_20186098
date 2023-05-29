@@ -10,5 +10,6 @@ public class FlujoTutor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutor);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
