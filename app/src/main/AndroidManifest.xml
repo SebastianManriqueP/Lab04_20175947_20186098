@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,15 +15,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab04_AIOT"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".FlujoTrabajador"
-            android:parentActivityName=".MainActivity"
+            android:name=".tutor_buscar"
             android:exported="false" />
         <activity
+            android:name=".FlujoTrabajador"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".FlujoTutor"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

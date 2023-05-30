@@ -7,7 +7,7 @@
     tools:context=".FlujoTrabajador">
 
     <Button
-        android:id="@+id/b_list_trabajador"
+        android:id="@+id/descargarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
@@ -19,15 +19,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/b_busc_trabajador"
+        android:id="@+id/buscarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:backgroundTint="#03A9F4"
+        android:onClick="buscatrabajador"
         android:text="Buscar Trabajador"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b_list_trabajador" />
+        app:layout_constraintTop_toBottomOf="@+id/descargarButton" />
 
     <Button
         android:id="@+id/b_asig_tutoria"
@@ -38,5 +39,5 @@
         android:text="Asignar Tutoria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b_busc_trabajador" />
+        app:layout_constraintTop_toBottomOf="@+id/buscarButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
