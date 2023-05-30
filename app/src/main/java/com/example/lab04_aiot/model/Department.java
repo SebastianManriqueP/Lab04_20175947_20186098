@@ -1,6 +1,8 @@
 package com.example.lab04_aiot.model;
 
-public class Department {
+import java.io.Serializable;
+
+public class Department implements Serializable {
     private int department_id;
 
     private String department_name;

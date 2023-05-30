@@ -1,8 +1,9 @@
 package com.example.lab04_aiot.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Employee {
+public class Employee implements Serializable {
     private int id;
 
     private String first_name;

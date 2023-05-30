@@ -1,6 +1,8 @@
 package com.example.lab04_aiot.model;
 
-public class Job {
+import java.io.Serializable;
+
+public class Job implements Serializable {
     private String job_id;
 
     private String job_title;
