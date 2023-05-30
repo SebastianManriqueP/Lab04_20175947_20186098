@@ -42,7 +42,7 @@ public class tutor_buscar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_buscar);
 
-        // Configurar Retrofit
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:8080")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -51,20 +51,15 @@ public class tutor_buscar extends AppCompatActivity {
         // Obtener instancia de ApiService
         apiService = retrofit.create(ApiServiceTutor.class);
 
-        // Obtener referencia al EditText en el layout
         codigoEditText = findViewById(R.id.codigoEditText);
 
-        // Obtener referencia al botón en el layout
         Button buscarButton = findViewById(R.id.buscarButton);
 
-        // Configurar el evento de clic en el botón
         buscarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Obtener el código ingresado por el usuario
                 String codigo = codigoEditText.getText().toString();
 
-                // Llamar a la API para buscar el trabajador por código
                 buscarTrabajador(codigo);
             }
         });
@@ -80,14 +75,12 @@ public class tutor_buscar extends AppCompatActivity {
                     saveFile(response.body(), "informacionDe" + id + ".txt");
                     Toast.makeText(tutor_buscar.this, "Archivo descargado y guardado", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Manejar el error de la respuesta de la API
                     Toast.makeText(tutor_buscar.this, "Error en la respuesta de la API", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                // Manejar el error de la solicitud
                 Toast.makeText(tutor_buscar.this, "Error en la solicitud", Toast.LENGTH_SHORT).show();
             }
         });
@@ -103,7 +96,6 @@ public class tutor_buscar extends AppCompatActivity {
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
-            // Manejar el error al guardar el archivo
             Toast.makeText(tutor_buscar.this, "Error al guardar el archivo", Toast.LENGTH_SHORT).show();
         }
     }

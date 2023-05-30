@@ -37,35 +37,31 @@ public class FlujoTutor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutor);
 
-        // Configurar Retrofit
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        // Obtener instancia de ApiService
         apiService = retrofit.create(ApiServiceTutor.class);
 
-        // Obtener referencia al botón en el layout
         Button descargarButton = findViewById(R.id.descargarButton);
 
 
-        // Configurar el evento de clic en el botón
+
         descargarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Llamar a la API para descargar la lista de trabajadores
                 descargarListaTrabajadores();
             }
         });
 
         Button botonBuscar = findViewById(R.id.buscarButton);
 
-        // Configurar el evento de clic en el botón
+
         botonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Iniciar la actividad TutorBuscar
                 Intent intent = new Intent(FlujoTutor.this, tutor_buscar.class);
                 startActivity(intent);
             }
@@ -84,14 +80,12 @@ public class FlujoTutor extends AppCompatActivity {
                     saveFile(response.body());
                     Toast.makeText(FlujoTutor.this, "Archivo descargado y guardado", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Manejar el error de la respuesta de la API
                     Toast.makeText(FlujoTutor.this, "Error en la respuesta de la API", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                // Manejar el error de la solicitud
                 Toast.makeText(FlujoTutor.this, "Error en la solicitud", Toast.LENGTH_SHORT).show();
             }
         });
@@ -105,7 +99,6 @@ public class FlujoTutor extends AppCompatActivity {
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
-            // Manejar el error al guardar el archivo
             Toast.makeText(FlujoTutor.this, "Error al guardar el archivo", Toast.LENGTH_SHORT).show();
         }
     }
