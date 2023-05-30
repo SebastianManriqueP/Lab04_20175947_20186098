@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
             android:layout_marginTop="56dp"
-            android:text="Trabajo:"
+            android:text="TRABAJO: NO TIENE"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/textDate" />
 
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
             android:layout_marginTop="56dp"
-            android:text="Manager:"
+            android:text="MANAGER: NO TIENE"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/textSalario" />
 
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
             android:layout_marginTop="56dp"
-            android:text="Reunion:"
+            android:text="REUNION: NO TIENE"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/textDepartamento" />
 
