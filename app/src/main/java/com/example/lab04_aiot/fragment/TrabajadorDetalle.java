@@ -48,7 +48,18 @@ public class TrabajadorDetalle extends Fragment {
         binding.textNombre.setText("NOMBRE: "+empleado.getFirst_name()+" "+empleado.getLast_name());
         binding.textEmail.setText("EMAIL: "+empleado.getEmail());
         binding.textTelefono.setText("TELEFONO: "+empleado.getPhone_number());
+        binding.textDate.setText("HIRE_DATE: "+empleado.getHire_date().toString());
         binding.textSalario.setText("SALARIO: "+empleado.getSalary());
+        if(empleado.getJob() != null) {
+            binding.textTrabajo.setText("TRABAJO: " + empleado.getJob().getJob_title());
+        }
+        binding.textDepartamento.setText("DEPARTAMENTO: "+empleado.getDepartment_id().getDepartment_name());
+        if(empleado.getManager() != null){
+            binding.textManager.setText("MANAGER: "+empleado.getManager().getFirst_name()+" "+empleado.getManager().getLast_name());
+        }if(empleado.getMeeting() == 1){
+            binding.textReunion.setText("REUNION: "+empleado.getMeeting_date().toString());
+        }
+
 
         binding.buttonDescargar.setOnClickListener(view -> {
             guardarArchivoComoJson(empleado);

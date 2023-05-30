@@ -71,7 +71,7 @@ public class TrabajadorFragment extends Fragment {
         NavController navController = NavHostFragment.findNavController(TrabajadorFragment.this);
 
         /**Cambiar la IP por la ip privada de la maquina donde se ejecuta el web service**/
-        String baseUrl = "http://10.0.2.2:8080";
+        String baseUrl = "http://192.168.18.7:8080";
 
         TrabajadorRepository greenStoreRepository = new Retrofit.Builder()
                 .baseUrl(baseUrl)

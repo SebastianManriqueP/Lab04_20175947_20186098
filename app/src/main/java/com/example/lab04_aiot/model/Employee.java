@@ -17,7 +17,7 @@ public class Employee implements Serializable {
 
     private Timestamp hire_date;
 
-    private Job job;
+    private Job job_id;
 
     private double salary;
 
@@ -78,11 +78,11 @@ public class Employee implements Serializable {
     }
 
     public Job getJob() {
-        return job;
+        return job_id;
     }
 
     public void setJob(Job job) {
-        this.job = job;
+        this.job_id = job;
     }
 
     public double getSalary() {
